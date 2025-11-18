@@ -1,39 +1,31 @@
 import {Container, Row, Col, Carousel} from 'react-bootstrap'
+import pastasciutte from '../data/menu.json'
 
 const Home = function(){
     return(
         <Container className="mt-3">
     <Row className="justify-content-center">
-    {/*<Col className="col col-12 col-md-8 col-lg-4">*/}
-    <Col xs={12} md={8} lg={4}>
+    <Col xs={12} md={8} lg={6}>
+    <h1 className="text-center my-3">Le migliori pastasciutte del web!</h1>
+    </Col>
+
+    <Col xs={12} md={8} lg={6}>
          <Carousel>
-      <Carousel.Item>
-        <img src="https://placedog.net/300/300" className="w-100"/>
+            {pastasciutte.map((pasta) =>{
+                return(
+                    <Carousel.Item key={pasta.id}>
+        <img src={pasta.image} className="w-100"/>
         <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <h3>{pasta.name}</h3>
+          <p>{pasta.description}</p>
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item>
-        <img src="https://placecats.com/300/300" className="w-100"/>
-        <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img src="https://placebear.com/300/300" className="w-100"/>
-        <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
-        </Carousel.Caption>
-      </Carousel.Item>
+                )
+                })}
     </Carousel>
     </Col>
     </Row>
-      </Container>
+    </Container>
     )
 }
 export default Home
