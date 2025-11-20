@@ -1,7 +1,7 @@
 import { Container, Row, Col, Carousel, ListGroup } from 'react-bootstrap'
 import pastasciutte from '../data/menu.json'
 import { Component } from 'react'
-import PastaReviews from '../PastaReviews'
+import PastaReviews from './PastaReviews'
 // pastasciutte è un array di OGGETTI
 // sono andato a prenderlo dal file menu.json
 
@@ -37,8 +37,8 @@ class Home extends Component {
             {/* il valore di una prop va tra " " se è una stringa, o
         tra { } se è qualsiasi valore NON stringa */}
             <Carousel
-              onSlide={(i) => {
-                console.log('SLIDE CAMBIATA', i)
+              onSlid={(i) => {
+                // console.log('SLIDE CAMBIATA', i)
                 // con questo indice io voglio andare a cambiare quale elemento
                 // dell'array pastasciutte verrà salvato dentro lo stato
 
@@ -78,7 +78,7 @@ class Home extends Component {
 
         <Row className="justify-content-center my-3">
           <Col xs={12} md={8} lg={6}>
-          <PastaReviews pasta={this.state.activePasta}/>
+            <PastaReviews pasta={this.state.activePasta} />
           </Col>
         </Row>
       </Container>
