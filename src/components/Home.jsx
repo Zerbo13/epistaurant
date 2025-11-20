@@ -1,6 +1,7 @@
 import { Container, Row, Col, Carousel, ListGroup } from 'react-bootstrap'
 import pastasciutte from '../data/menu.json'
 import { Component } from 'react'
+import PastaReviews from '../PastaReviews'
 // pastasciutte è un array di OGGETTI
 // sono andato a prenderlo dal file menu.json
 
@@ -77,15 +78,7 @@ class Home extends Component {
 
         <Row className="justify-content-center my-3">
           <Col xs={12} md={8} lg={6}>
-            <ListGroup className="text-center">
-              {this.state.activePasta.comments.map((c) => {
-                return (
-                  <ListGroup.Item key={c.id}>
-                    {c.author} | {c.comment}
-                  </ListGroup.Item>
-                )
-              })}
-            </ListGroup>
+          <PastaReviews pasta={this.state.activePasta}/>
           </Col>
         </Row>
       </Container>
